@@ -14,7 +14,7 @@ df = pd.merge(df_ratings, df_movies, on="movieId")
 rate_mat = df.pivot_table(index="userId", columns="title", values="rating")
 
 # Extracting the ratings for a particular movie
-forrestGumpRatings = rate_mat['Forrest Gump (1994)']
+forrestGumpRatings = rate_mat['Fight Club (1999)']
 
 # Finding similar movies ==> Correlations using corrwith()
 # compute the pairwise correlation of movie vector of rate_mat
@@ -26,3 +26,11 @@ corrForrest = pd.DataFrame(similar, columns=['Correlation'])
 
 # Remove all the NaN values
 corrForrest.dropna(inplace=True)
+movieStats = df.groupby('title').agg({'rating': [np.size, np.mean]})
+
+popularMovies = movieStats['rating']['size'] >= 100
+movieStats[popularMovies].sort_values([('rating', 'mean')], ascending=False)[:15]
+
+df_new = movieStats[popularMovies].join(pd.DataFrame(similar, columns=['similarity']))
+df_new = df_new.sort_values(['similarity'], ascending=False)[:15]
+print(df_new.head())
