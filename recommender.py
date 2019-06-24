@@ -13,7 +13,7 @@ df = pd.merge(df_ratings, df_movies, on="movieId")
 # All this done by pivot_table
 rate_mat = df.pivot_table(index="userId", columns="title", values="rating")
 
-movie_name = input("Enter a movie name: ")
+movie_name = input("Enter a movie of the form MOVIE_NAME (YEAR_OF_RELEASE): ")
 
 # Extracting the ratings for the respective movie
 movieRatings = rate_mat[movie_name]
