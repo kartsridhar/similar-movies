@@ -8,7 +8,7 @@ the dataset can be downloaded [here](https://grouplens.org/datasets/movielens/la
 ## How to run
 ```
 $ git clone https://github.com/kartsridhar/similar-movies.git
-$ python recommender.py
+$ python similar.py
 Enter a movie of the form MOVIE_NAME (YEAR_OF_RELEASE): Fight Club (1999)
 ```
 
