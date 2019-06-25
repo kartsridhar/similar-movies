@@ -2,7 +2,7 @@
 
 This is an experiment to find similar movies and recommend respective ones (Item based Collaborative Filtering).
 
-The dataset used for training is from [MovieLens](http://movielens.org). The zip file of
+The dataset used is from [MovieLens](http://movielens.org). The zip file of
 the dataset can be downloaded [here](https://grouplens.org/datasets/movielens/latest/).
 
 ## How to run
